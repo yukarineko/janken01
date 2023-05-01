@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>おみくじ</title>
+</head>
+
+<body>
+  <header>
+    <h1>おみくじ</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="pull">おみくじを引く</li>
+    </ul>
+    <p id="echo">結果は？</p>
+  </main>
+
+  <footer>フッター</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    // idがpullの部分をクリックしたら・・・おみくじのボタンを押したときに結果を出したい
+    $("#pull").on("click", function () {
+
+      //０～２０までの乱数を発生させる
+      const min = 0;
+      const max = 20;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1));
+      console.log(randomNumber)
+
+      if (randomNumber === 0) {
+        //alert("大吉！");
+        $("#echo").text("大吉");
+      }
+      else if (randomNumber === 1) {
+        //alert("中吉！");
+        $("#echo").text("中吉");
+      } else if (randomNumber === 2) {
+        //alert("小吉");
+        $("#echo").text("小吉");
+      }
+      else if (randomNumber === 3) {
+        //alert("凶");
+        $("#echo").text("凶");
+      }
+      else if (randomNumber === 4) {
+        //alert("大凶");
+        $("#echo").text("大凶");
+        $("#echo").css("color", "red");
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+
+<body>
+  <header>
+    <h1>じゃんけん</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="gu_btn"><img src="img/gu.png"></li>
+      <li id="cho_btn"><img src="img/choki.png"></li>
+      <li id="par_btn"><img src="img/pa.png"></li>
+    </ul>
+    <div id="com_hand">コンピュータの出した手は？</div>
+    <div id="result">結果は？</div>
+    <div id="winCount">勝利数は？</div>
+
+  </main>
+
+  <footer>
+    じゃんけんカウント
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    //ここに処理を追加
+
+
+    //////////////////////グーの場合/////////////////////////
+
+    let winCount = 0;
+    let gameCount = 0;
+
+    $("#gu_btn").on("click", function () {
+
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1));
+      console.log(randomNumber)
+
+      //0→グー
+      //1→チョキ
+      //2→パー
+
+      if (randomNumber === 0) {
+        //alert("グーです");
+        $("#com_hand").html("<img src='img/gu.png' width='100' height='100'>");
+        $("#result").text("あいこ！");
+        ////あいこ時にドキンちゃんを出す///
+        $("#result").html("<img src='img/ドキンちゃん.jpg'width='400' height='400'>");
+        $("#result").hide();
+        $("#result").fadeIn(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+      }
+
+      else if (randomNumber === 1) {
+        //alert("チョキです");
+        $("#com_hand").html("<img src='img/choki.png' width='100' height='100'>");
+        $("#result").text("負け！");
+        ////負けた時にバイキンマンを出す///
+        $("#result").html("<img src='img/バイキンマン.jpg'width='400' height='400'>");
+        $("#result").hide();
+        $("#result").fadeIn(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+      }
+      else if (randomNumber === 2) {
+        //alert("パーです");
+        winCount++;
+        $("#com_hand").html("<img src='img/pa.png' width='100' height='100'>");
+        $("#result").text("勝ち！！");
+        ////勝った時にアンパンマンを出す///
+        $("#result").html("<img src='img/アンパンマン.jpg' width='400' height='400'>");
+        $("#result").hide();
+        $("#result").slideDown(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+        $("#winCount").text("勝利数：" + winCount);
+      }
+      console.log("勝利数：" + winCount);
+    })
+
+    //////////////////////チョキの場合/////////////////////////
+
+    $("#cho_btn").on("click", function () {
+
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1));
+      console.log(randomNumber)
+
+      //0→グー
+      //1→チョキ
+      //2→パー
+
+      if (randomNumber === 0) {
+        //alert("グーです");
+        $("#com_hand").html("<img src='img/gu.png' width='100' height='100'>");
+        $("#result").text("勝ち！");
+        ////勝った時にアンパンマンを出す///
+        $("#result").html("<img src='img/アンパンマン.jpg'width='400' height='400'>");
+        $("#result").hide();
+        $("#result").slideDown(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+        winCount++;
+        $("#winCount").text("勝利数：" + winCount);
+      }
+
+      else if (randomNumber === 1) {
+        //alert("チョキです");
+        $("#com_hand").html("<img src='img/choki.png' width='100' height='100'>");
+        $("#result").text("あいこ！");
+        ////あいこ時にドキンちゃんを出す///
+        $("#result").html("<img src='img/ドキンちゃん.jpg'width='400' height='400'>");
+        $("#result").hide();
+        $("#result").fadeIn(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+      }
+
+
+      else if (randomNumber === 2) {
+        //alert("パーです");
+        $("#com_hand").html("<img src='img/pa.png' width='100' height='100'>");
+        $("#result").text("負け！");
+        ////負けの時にバイキンマンを出す///
+        $("#result").html("<img src='img/バイキンマン.jpg'width='400' height='400'>");
+        $("#result").hide();
+        $("#result").fadeIn(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+      }
+      console.log("勝利数：" + winCount);
+    })
+
+
+
+    //////////////////////パーの場合/////////////////////////
+
+    $("#par_btn").on("click", function () {
+
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1));
+      console.log(randomNumber)
+
+      //0→グー
+      //1→チョキ
+      //2→パー
+
+      if (randomNumber === 0) {
+        //alert("グーです");
+        $("#com_hand").html("<img src='img/gu.png' width='100' height='100'>");
+        $("#result").text("負け！");
+        ////負けた時にバイキンマンを出す///
+        $("#result").html("<img src='img/バイキンマン.jpg'width='400' height='400'>");
+        $("#result").hide();
+        $("#result").fadeIn(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+
+      }
+      else if (randomNumber === 1) {
+        //alert("チョキです");
+        $("#com_hand").html("<img src='img/choki.png' width='100' height='100'>");
+        $("#result").text("勝ち！");
+        ////勝った時にアンパンマンを出す///
+        $("#result").html("<img src='img/アンパンマン.jpg'width='400' height='400'>");
+        $("#result").hide();
+        $("#result").slideDown(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+        winCount++;
+        $("#winCount").text("勝利数：" + winCount);
+      }
+
+
+      else if (randomNumber === 2) {
+        //alert("パーです");
+        $("#com_hand").html("<img src='img/pa.png' width='100' height='100'>");
+        $("#result").text("あいこ！！");
+        ////あいこ時にドキンちゃんを出す///
+        $("#result").html("<img src='img/ドキンちゃん.jpg'width='400' height='400'>");
+        $("#result").hide();
+        $("#result").fadeIn(1000)
+        $("#result").css("display", "flex");
+        $("#result").children("img").css("margin", "auto");
+      }
+      console.log("勝利数：" + winCount);
+    })
+
+
+  </script>
+
+</body>
+
+</html>

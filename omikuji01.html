@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おみくじ練習</title>
+</head>
+
+<body>
+  <script>
+    // ０から４が出てくる
+    const min = 0;
+    const max = 20;
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log(randomNumber)
+
+    //if (randomNumber === 0) {
+    //  alert("大吉！");
+    //}
+
+    //else if (randomNumber === 1) {
+    // alert("中吉！");
+    //} else if (randomNumber === 2) {
+    // alert("小吉!");
+    //}
+    //else if (randomNumber === 3) {
+    // alert("凶!");
+    //}
+    //else {
+    // alert("大凶!");
+    //}
+
+    //0//
+    if (randomNumber === 0) {
+      alert("大吉！");
+    }
+
+    //1.3//
+    else if (1 <= randomNumber && randomNumber <= 3) {
+      alert("中吉！");
+    }
+    //4.7//
+    else if (4 <= randomNumber && randomNumber <= 7) {
+      alert("小吉!");
+    }
+
+    //8.12//
+    else if (8 <= randomNumber && randomNumber <= 12) {
+      alert("凶!");
+    }
+
+    //13.20//
+    else {
+      alert("大凶!");
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>
